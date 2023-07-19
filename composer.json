@@ -1,0 +1,15 @@
+{
+  "autoload": {
+    "psr-4": {
+      "App\\": "App"
+    },
+    "files": [
+      "App/Inc/acf/acf.php",
+      "App/helpers.php",
+      "App/routes.php"
+    ]
+  },
+  "require": {
+    "tgmpa/tgm-plugin-activation": "^2.6"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "MuradnagarBD",
+  "short_name": "MuradnagarBD",
+  "version": "1.0",
+  "start_url": "/",
+  "background_color": "#e9eaea",
+  "display": "standalone",
+  "theme_color": "#2196f3"
+}

@@ -1,0 +1,246 @@
+/***************** General styles *****************/
+$bg: #e9eaea;
+$primary: #2196f3;
+$secondary: #434456;
+
+$spacing-unit: 10px;
+$spacing-unit-2: 20px;
+
+$breakpoint-md: 960px;
+
+@mixin trans {
+  transition: all 200ms ease-in-out;
+}
+
+@font-face {
+  font-family: Kalpurush;
+  src: url("./fonts/kalpurush.ttf") format('truetype');
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+
+body {
+  background: $bg;
+  font-family: Kalpurush, sans-serif;
+}
+
+.flex {
+  display: flex;
+
+  &-#{wrap} {
+    flex-wrap: wrap;
+
+    &-#{md} {
+      flex-wrap: wrap;
+      @media all and (min-width: $breakpoint-md) {
+        flex-wrap: nowrap;
+      }
+    }
+  }
+
+  &-#{direction-column} {
+    flex-direction: column;
+  }
+}
+
+.grid {
+  display: grid;
+}
+
+$flexJustifies: (center, between, around);
+
+.justify-content {
+  @each $item in $flexJustifies {
+    &-#{$item} {
+      @if ($item == between $item == around) {
+        justify-content: space-#{$item};
+      } @else {
+        justify-content: $item;
+      }
+    }
+  }
+}
+
+.align-items- {
+  &#{center} {
+    align-items: center;
+  }
+
+  &#{start} {
+    align-items: flex-start;
+  }
+}
+
+$directions: (right, left, top, bottom);
+
+.spacer- {
+  @each $direction in $directions {
+    &#{$direction} {
+      margin-#{$direction}: auto;
+    }
+  }
+}
+
+.spacing {
+  margin: $spacing-unit;
+
+  @media all and (min-width: $breakpoint-md) {
+    margin: $spacing-unit-2;
+  }
+
+  &-sm {
+    margin: $spacing-unit;
+  }
+
+  @each $direction in $directions {
+    &-#{$direction} {
+      margin-#{$direction}: $spacing-unit;
+
+      &-sm {
+        margin-#{$direction}: $spacing-unit;
+      }
+    }
+  }
+
+  @media all and (min-width: $breakpoint-md) {
+    @each $direction in $directions {
+      &-#{$direction} {
+        margin-#{$direction}: $spacing-unit-2;
+      }
+
+      &-#{$direction}-md {
+        margin-#{$direction}: $spacing-unit-2;
+
+        &-sm {
+          margin-#{$direction}: $spacing-unit;
+        }
+      }
+    }
+  }
+}
+
+.clear-fix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.btn-link {
+  text-decoration: none;
+  font: inherit;
+  color: inherit;
+}
+
+.link-primary {
+  color: $primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.date {
+  display: block;
+  text-indent: 1rem;
+  margin-bottom: 15px;
+}
+
+.fallback {
+  background: #fff;
+  border-radius: 3px;
+}
+
+/***************** Header ******************/
+
+header {
+  //height: 80px;
+  //background: #fff;
+  //box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+}
+
+/********************** Main **********************/
+
+#contents {
+  width: 100%;
+  overflow-x: hidden;
+  @include trans;
+}
+
+.content-block {
+  margin-bottom: $spacing-unit-2;
+}
+
+/**************** Sidebar ********************/
+
+#side-bar {
+  width: 100%;
+  min-height: calc(100vh - 74px);
+  position: static;
+  overflow-x: hidden;
+  padding-right: 10px;
+  padding-left: 10px;
+  @include trans;
+}
+
+@media all and (min-width: $breakpoint-md) {
+
+  #side-bar {
+    width: 400px;
+    position: sticky;
+    bottom: 0;
+    align-self: flex-end;
+    padding-left: 0;
+    padding-right: $spacing-unit-2;
+    overflow-x: unset;
+  }
+}
+
+
+/*********************** Wordpress calendar widget ********************/
+
+.calendar_wrap {
+  table {
+    width: 100%;
+    text-align: center;
+  }
+
+  caption {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+
+  td {
+    background: #f5f5f5;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #000;
+  }
+
+  a {
+    color: $primary;
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+
+    &:hover {
+      color: #fff;
+      background: $primary;
+      box-shadow: 0 0 1px rgba(0, 0, 0, .2);
+    }
+  }
+}

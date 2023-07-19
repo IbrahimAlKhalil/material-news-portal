@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitThis": true,
+    "jsx": "preserve",
+    "allowJs": true,
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "types": ["node"]
+  },
+  "files": ["./src/index.tsx", "./src/typings.d.ts"],
+  "exclude": ["node_modules/**/*"]
+}
